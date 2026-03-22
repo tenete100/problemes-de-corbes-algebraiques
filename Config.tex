@@ -1,0 +1,89 @@
+
+\usepackage{graphicx} % Required for inserting images
+% \usepackage[utf8]{inputenc} % Que caracteres se van a ver
+\usepackage[document]{ragged2e} % Poner los párrafos
+\usepackage{amsmath,amsthm,amssymb,latexsym}
+\usepackage{enumitem}
+% \usepackage{xcolor}
+\usepackage[x11names]{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{tkz-euclide}
+\usepackage{pgfplots}
+% \usepackage{cancel}
+\usepackage{hyperref}
+\usepackage{mathrsfs,mathtools}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage[catalan]{babel}
+
+\renewcommand\refname{}
+\usepackage[margin=1in]{geometry}
+
+
+
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{patterns}
+
+\setlength{\headheight}{15.21004pt}
+
+\DeclareMathOperator{\Ima}{Im}
+
+%% Macros
+\providecommand{\ol}{\overline}
+\providecommand{\ul}{\underline}
+\providecommand{\wt}{\widetilde}
+\providecommand{\wh}{\widehat}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\half}{\frac{1}{2}}
+\providecommand{\inv}{^{-1}}
+\newcommand{\dang}{\measuredangle} %% Directed angle
+\providecommand{\CC}{\mathbb C}
+\providecommand{\FF}{\mathbb F}
+\providecommand{\NN}{\mathbb Z_{\geq 1}}
+\providecommand{\QQ}{\mathbb Q}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\PP}{\mathbb P}
+\providecommand{\ZZ}{\mathbb Z}
+\providecommand{\dd}{\mathrm d}
+\newcommand{\mfrk}{\mathfrak}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\TT}{\mathcal{T}}
+\providecommand{\ts}{\textsuperscript}
+\providecommand{\dg}{^\circ}
+\providecommand{\ii}{\item}
+\DeclareMathOperator*{\lcm}{lcm}
+\DeclareMathOperator*{\argmin}{arg min}
+\DeclareMathOperator*{\argmax}{arg max}
+\DeclareMathOperator*{\rad}{rad}
+\DeclareMathOperator*{\spec}{Spec}
+\DeclareMathOperator*{\mult}{mult}
+\providecommand{\bigO}{\mathcal O}
+
+
+
+
+% theorem environments
+% starred versions are not numbered, unstarred versions have a number
+\theoremstyle{definition}
+    \newtheorem{theorem}{Teorema}
+    \newtheorem{lemma}[theorem]{Lema}
+    \newtheorem{claim}[theorem]{Claim}
+    \newtheorem{corollary}[theorem]{Corol·lari}
+    \newtheorem{definition}[theorem]{Definició}
+    \newtheorem{proposition}[theorem]{Proposició}
+    \newtheorem{example}[theorem]{Exemple}
+    
+    \newtheorem*{theorem*}{Teorema}
+    \newtheorem*{lemma*}{Lema}
+    \newtheorem*{claim*}{Claim}
+    \newtheorem*{corollary*}{Corol·lari}
+    \newtheorem*{definition*}{Definició}
+    \newtheorem*{proposition*}{Proposició}
+    \newtheorem*{example*}{Exemple}
+    \newtheorem*{proof*}{Demostració}
+    
+\theoremstyle{remark}
+    \newtheorem{remark}[theorem]{Remarca}
+    \newtheorem*{remark*}{Remarca}

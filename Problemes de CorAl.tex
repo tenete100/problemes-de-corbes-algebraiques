@@ -1,0 +1,149 @@
+\documentclass[11pt, a4paper]{article}
+\input{Config.tex}
+\usepackage{hyperref}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesection}{}
+
+\title{Introducció a l'àlgebra commutativa}
+\author{Bernat Esteve Sagarra}
+
+\begin{document}
+\pagestyle{fancy}
+% 
+\lhead{Bernat Esteve}
+\rhead{Problemes d'Àlgebra commutativa}
+\begin{tcolorbox}[title=\section{Exercici 1}]
+    Sigui $A$ un anell, $I$ un ideal. Recordeu que es defineix el \textit{radical} de $I$, $\rad(I)=\eta(I)$, com el conjunt d'elements $x\in A$ tals que existeixen $n\in\NN$ tal que $x^n\in I$. Proveu que:
+    \begin{enumerate}
+        \item $\rad(I)$ és la intersecció de tots els ideals primers de $A$ que contenen $I$.
+        \item Si $I$ és un ideal primer, $\rad(I^n)=I$ per a tot $n>0$.
+        \item $\rad(I)$ és un ideal maximal si, i només si, $I$ està contingut en un únic ideal primer.
+    \end{enumerate}
+\end{tcolorbox}
+\subsection{Exercici 1.1}
+Per veure el primer apartat, notem que $\rad(I)$ és un ideal. Per veure-ho notem que $\rad(I)/I$ són els elements nilpotents de $A/I$; i per tant és un ideal (per la bijecció entre un conjunt i l'altre).\par
+\textbf{Primera inclusió:}\\
+Per fer la primera inclusió, recordem que $\eta(A/I)=\bigcap_{\mfrk{p}\in\spec(A/I)}\mfrk p$; i com que hi ha una bijecció entre els ideals primers que contenen $I$ i els de $A/I$; que ens dona el que volíem.\par
+\textbf{Segona inclusió:}\\
+Sigui $J$ un ideal primer que conté $I$, aleshores tenim $x^n\in J \implies x\in J$; és a dir que el $\rad\subseteq J$, que és el que volíem veure.
+\subsection{Exercici 1.2}
+Notem que $I^2\subseteq I$, per tant, $\rad(I^2)\subseteq\rad(I)$, per tant, en tenim prou en veure-ho per $\rad(I)$. Però sabem que $A/I$ on $I$ és un ideal primer és un domini d'integritat, i per tant, no hi ha elements nilpotents, i per tant el radical és $I$, que és el que volíem veure.
+\subsection{Exercici 1.3}
+\textbf{Primera implicació:}\\
+Per veure la primera implicació, notem que si $I$ només està contingut en un ideal primer $J$, aquest ha de ser maximal. I com que el radical ha de ser un ideal primer que contingui $I$, aquest haurà de ser $J$.\par
+\textbf{Segona implicació:}\\
+Per veure la segona implicació, notem que si l'ideal $\rad$ és maximal, aleshores també és primer; i com que $\rad$ ha de viure dins de tots els ideals primers que contenen $I$, aquest ha de ser únic.
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 14}]
+Per a cadascuna de les corbes següents del pla afí trobeu dues parametritzacions: una projectant des del punt $(0, 0)$ sobre la recta $y = 1$ i l'altra projectant des del punt $(0, 0)$ sobre la recta $x = 1$. Representeu gràficament les corbes. Recordeu la notació $V (f) = \{(x, y) \mid f(x, y) = 0\}$.
+\begin{enumerate}
+    \item $V(x^2 + y^2 - 2x)$.
+    \item $V(2x^2 +7xy-4x+y)$.
+    \item $V(y^2-x^2+2x^3)$.
+    \item $V(y^2+x^3)$.
+    \item $V(x^2+y^2+2x^3)$.
+    \item $V(x^3+y^3+x^4)$.
+    \item $V(x^2y-xy^2+x^4)$.
+\end{enumerate} 
+\end{tcolorbox}
+\subsection{Exercici 14.1}
+Notem que $x^2-2x+1+y^2-1=0\iff\left(x-1\right)^2+y^2=1$ que es representar com una rodona centrada en el $\left(1,0\right)$ de radi $1$.\par
+\begin{center}
+    \begin{tikzpicture}
+        \draw (1,0) circle (1);
+        \draw (-0.5,0)--(2.5,0);
+        \draw (0,-1.5)--(0,1.5);
+        \draw[red] (-0.5,1)--(2.5,1);
+        \draw[blue] (1,-1.5)--(1,1.5);
+    \end{tikzpicture}
+\end{center}
+Per parametritzar la corba, considerem $\ol l_t=(0:0:1)\vee (1:t:0)$, ($l_t=(0,0)\vee(1,t)=\{\lambda,\lambda t\}$), aleshores prenem $p(t)=V(F)\cap l_t$.
+\[
+    \lambda^2-2\lambda+\lambda^2t^2=0\iff
+    (\lambda+\lambda t^2-2)\lambda=0
+\]
+però si $\lambda=0$ tenim l'orígen: i volem trobar l'altre punt, que ve donat per:
+\[
+    \lambda+\lambda t^2-2=0\iff 
+    \lambda(1+ t^2)=2\iff 
+    \lambda=\frac{2}{1+t^2}
+\]
+És a dir, tenim el punt $\left(\frac{2}{1+t^2},\frac{2t}{1+t^2}\right)$.\par
+Per tenir l'altra parametrització fem $(x,y)=(\lambda t,\lambda)$, amb $\lambda\neq0$:
+\[
+    \lambda^2t^2-2\lambda t+\lambda^2=
+    \lambda(\lambda t^2-2t+\lambda)=0\iff 
+    \lambda(t^2+1)=2t\iff \lambda=\frac{2t}{t^2+1}
+\]
+És a dir, tenim que la parametrització ve donada per: $\left(\frac{2t^2}{t^2+1},\frac{2t}{t^2+1}\right)$
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 1}]
+Calculeu la multiplicitat d'intersecció en el $(0, 0)$ de les parelles de corbes afins següents:
+\begin{enumerate}
+    \item $f:y^2 + x^2y - x ^3 = 0$ i $g:y^2 + x^3y + 2x = 0$.
+    \item $f:y^3 - x^3=0$ i $g:y^2-x^3=0$.
+\end{enumerate}
+\end{tcolorbox}
+\subsection{Exercici 1.1}
+notem que el con tangent de $f$ és la recta doble $y^2=0$; i la de $g$ és $x=0$; i com que tenen el con tangent diferent, tenim que han de tenir: $m_{(0,0)}(f)\,m_{(0,0)}(g)=2$.
+\subsection{Exercici 1.2}
+Notem que ara el con tangent de $f$ és $\{x-y,x-\xi y, x-\xi^2 y\}$ (on $\xi$ és una arrel tercera primitiva de la unitat). I com que el con de $g$ és la recta doble $y=0$, tenim que la multiplicitat d'intersecció és $6$.
+\newpage
+\begin{tcolorbox}[title=\section{Lab 1}]
+    \begin{enumerate}
+        \item[\textbf{P1}] Sigui $C$ una cònica del pla projectiu amb matriu $A$. Demostreu que els punts dobles de $C$ (és         a dir els punts tals que les seves coordenades són anul·lats per la matriu) són exactament els punts singulars de $C$. Proveu que en un punt no singular la tangent que hem definit coincideix amb la polar en el punt (és a dir, la tangent que es definia a Geometria Projectiva).
+        \item[\textbf{P2}] Calculeu la multiplicitat d'intersecció en el $(0, 0)$ de les parelles de corbes afins següents:
+        \begin{enumerate}
+            \item $x^3+x+y=0$ i $y^3 = 3x^2y+2x^3$
+            \item $y^4 = x^3$ i $x^2y^3 - y^2+2x^7 = 0$
+            \item $y^2 = x^5$ i $y^3 - 4x^3y+x^4 = 0$
+            \item $xy^4+y^3 = y^5+x^2 = xy$
+        \end{enumerate}
+        \item[\textbf{P3}] Considerem la corba projectiva de grau 4 següent:
+        \[
+            F(x, y, z) = x^2y^2+y^2z^2+z^2x^2-3xyz(x+y+z)
+        \]
+        Proveu que la corba és singular en els punts $[1 : 0 : 0]$, $[0 : 1 : 0]$, $[0 : 0 : 1]$, trobeu la multiplicitat i les rectes del con tangent en cada cas.
+        \item[\textbf{P4}] Siguin $l_1, \dots , l_k$ polinomis homogenis de grau 1 en les variables $x$, $y$, $z$ no proporcionals dos a dos. Considerem la corba de polinomi $F = l_1l_2 \dots l_k$. Doneu el màxim nombre de singularitats que pot tenir $F$. Per $k = 4$, descriviu totes les configuracions de singularitats que es poden donar amb totes les multiplicitats i cons tangents a cada punt.
+        \item[\textbf{P5}] Siguin $y - p(x)$, $g(x, y) \in K[x, y]$ polinomis tals que $y - p(x)$ no divideix $g(x, y)$, $g(0, 0) = 0$ i $p(0) = 0$. Useu l'axiomàtica de la multiplicitat d'intersecció per provar que:
+        \[I_{(0,0)}(y - p(x), g(x, y)) = \mult_0 g(x, p(x)).\]
+        \textit{(Indicació: poseu $g(x, y) = g_0(x) + g_1(x)y + \dots + g_r(x)y^r$ i apliqueu inducció sobre $r$. També es pot resoldre considerant $y - p(x)$ i $g(x, y)$ com a polinomis en $C(x)[y]$ i dividint $g$ per $y - p(x)$ aprofitant que $C(x) = \{r(x)/s(x), s\neq 0\}$ és un cos).}
+        Apliqueu aquesta fórmula per calcular la multiplicitat d'intersecció en el $(0, 0)$ de la cònica $y - x^2$ i la cúbica $xy + x^3+y^3$.
+    \end{enumerate}
+\end{tcolorbox}
+\subsection{Exercici 1}
+Notem que els punts singulars de $C$ són els punts que s'anul·len totes les derivades parcials, però notem que la matriu de les derivades parcials és exactament la mateixa matriu que la de la cònica. I per tant, com que la recta tangent (en $p$) són els punts que anul·len $M_Cp$, que equival a anul·lar la derivada en el punt corresponent.
+\subsection{Exercici 2.1}
+Notem que els cons tangents són:
+\[
+    T_0(f) = x+y=0,\qquad T_0(g) = (x+y)(y+x)(y-2x) = 0
+\]
+Per tant, com que no són disjunts la multiplicitat serà com a mínim 4. Prenem ara $g-(x+y)(y-2x)f = -x^3(x+y)(y-2x)=h$
+\[
+    T_0(f) = x+y=0,\qquad T_0(h) = x^3(y+x)(y-2x) = 0
+\]
+Per tant, ara prenem $h-x^3(y-2x)f=x^6(y-2x)(y+x)=j$,
+\[
+    T_0(f) = x+y=0,\qquad T_0(j) = x^6(y-2x) = 0
+\]
+I ara per fi el con tangent és disjunt, per tant, la multiplictat és 6.
+\subsection{Exercici 2.2}
+Els cons tangents són:
+\[
+    T_0(f)=x^3, \qquad T_0(g) = y^2
+\]
+Per tant $m_0=6$
+\subsection{Exercici 2.3}
+Els cons tangents són:
+\[
+    T_0(f)=y^2, \qquad T_0(g) = y^3
+\]
+Fem ara $g-yf = $
+
+
+\end{document}
+% ---
+% \newpage
+% \begin{tcolorbox}[title=\section{Exercici XXX}]
+% \end{tcolorbox}
+% \subsection{Exercici XXX}
