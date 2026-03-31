@@ -11,28 +11,143 @@
 \pagestyle{fancy}
 % 
 \lhead{Bernat Esteve}
-\rhead{Problemes d'Àlgebra commutativa}
+\rhead{Problemes de corbes algebràiques}
 \begin{tcolorbox}[title=\section{Exercici 1}]
-    Sigui $A$ un anell, $I$ un ideal. Recordeu que es defineix el \textit{radical} de $I$, $\rad(I)=\eta(I)$, com el conjunt d'elements $x\in A$ tals que existeixen $n\in\NN$ tal que $x^n\in I$. Proveu que:
-    \begin{enumerate}
-        \item $\rad(I)$ és la intersecció de tots els ideals primers de $A$ que contenen $I$.
-        \item Si $I$ és un ideal primer, $\rad(I^n)=I$ per a tot $n>0$.
-        \item $\rad(I)$ és un ideal maximal si, i només si, $I$ està contingut en un únic ideal primer.
-    \end{enumerate}
+    Proveu que els divisors d'un polinomi homogeni són necessàriament homogenis.
 \end{tcolorbox}
-\subsection{Exercici 1.1}
-Per veure el primer apartat, notem que $\rad(I)$ és un ideal. Per veure-ho notem que $\rad(I)/I$ són els elements nilpotents de $A/I$; i per tant és un ideal (per la bijecció entre un conjunt i l'altre).\par
-\textbf{Primera inclusió:}\\
-Per fer la primera inclusió, recordem que $\eta(A/I)=\bigcap_{\mfrk{p}\in\spec(A/I)}\mfrk p$; i com que hi ha una bijecció entre els ideals primers que contenen $I$ i els de $A/I$; que ens dona el que volíem.\par
-\textbf{Segona inclusió:}\\
-Sigui $J$ un ideal primer que conté $I$, aleshores tenim $x^n\in J \implies x\in J$; és a dir que el $\rad\subseteq J$, que és el que volíem veure.
-\subsection{Exercici 1.2}
-Notem que $I^2\subseteq I$, per tant, $\rad(I^2)\subseteq\rad(I)$, per tant, en tenim prou en veure-ho per $\rad(I)$. Però sabem que $A/I$ on $I$ és un ideal primer és un domini d'integritat, i per tant, no hi ha elements nilpotents, i per tant el radical és $I$, que és el que volíem veure.
-\subsection{Exercici 1.3}
-\textbf{Primera implicació:}\\
-Per veure la primera implicació, notem que si $I$ només està contingut en un ideal primer $J$, aquest ha de ser maximal. I com que el radical ha de ser un ideal primer que contingui $I$, aquest haurà de ser $J$.\par
-\textbf{Segona implicació:}\\
-Per veure la segona implicació, notem que si l'ideal $\rad$ és maximal, aleshores també és primer; i com que $\rad$ ha de viure dins de tots els ideals primers que contenen $I$, aquest ha de ser únic.
+\subsection{Exercici 1}
+Sigui $F$ un polinomi homogeni de grau $N$, i $F=GH$. Aleshores, sigui $G=g_r + g_{r+1}+\dots +g_{n}$ i $H=h_s+h_{s+1}+\dots h_m$ (amb $g_r$, $h_s$, $g_n$ i $h_m\neq0$). Aleshores tenim que:
+\[
+\begin{array}{ll}
+    g_rh_s=F_{r+s}\neq0\\
+    g_nh_m=F_{m+n}\neq0
+\end{array}
+\]
+Per tant, a no ser que $r=n$ i $s=m$, tenim que $r+s<m+n$, i per tant, $F$ no és homogeni.
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 2}]
+    Siguin $f(x)$ i $g(x)$ dos polinomis en una variable sense factors en comú de grau positiu. Proveu que $h=f(x)+yg(x)$ és irreductible.
+\end{tcolorbox}
+\subsection{Exercici 2}
+Notem que si $h$ factoritza, ens podem mirar els factors com a elements de $\CC[x]$, i per tant ha de factoritzar com un polinomi de grau 1 i un de grau 0:
+\[h=p(x)(q(x)+yr(x))\]
+I per tant, tenim que $p(x)\mid f(x)$ i $p(x)\mid g(x)$, però per les hipòtesis, $p$ ha de ser constant.
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 3}]
+    Sigui $f(x,y)\in \CC[x,y]$ una forma (polinomi homogeni) de grau $k$. Demostreu que $f$ factoritza com a producte de $k$ formes lineals:
+    \[
+        f(x,y)=\prod_{i=1}^k(\beta_i x-\alpha_i x).
+    \]
+    En particular $f$ s'anul·la en $k$ punts comptats amb multiplicitat.
+\end{tcolorbox}
+\subsection{Exercici 3}
+Notem que com que és un polinomi homogeni, tenim que el podem escriure com
+\[
+    f= a_rx^ry^{n-r}+\dots a_sx^sy^{n-s}=x^r\underbrace{(a_ry^{n-s}+\dots+a_sx^{s-r}y^{n-s})}_{g}
+\]
+Considerem ara $g(1,y)$. Com que estem en un cos algebraicament tancat, tenim que $g$ es pot factoritzar en lineals, i aleshores si fem $g(1,y) = \prod_{i=1}^{n-r} \beta_i - \alpha _iy$, i si ara fem $g(x,y)=x^{n-s}g\left(1,\frac{y}{x}\right)$ que ens dona just el que volíem.
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 4}]
+    Sigui $f(x)$ un polinomi en una variable. Proveu que $g=y^3+f(x)$ com a producte de polinomis de grau positiu sii existeix un polinomi $g$ tal que $f=g^3$.
+\end{tcolorbox}
+\subsection{Exercici 4}
+\textbf{$\implies$}\\
+Suposem que $g=a\cdot b$, aleshores com a polinomis en $y$, un ha de ser de grau 1 i l'altre de grau 2.
+\[
+    y^3+f(x)=(a_0(x)+a_1(x)y)(b_0(x) + b_1(x) y+b_2(x) y^2)
+\]
+Si agrupem termes per graus de $y$:
+\[
+\begin{array}{lrl}
+    {[y^0]}: & f(x) = & a_0(x)b_0(x)\\
+    {[y^1]}: & 0 =    & a_0(x)b_1(x) + a_1(x)b_0(x)\\
+    {[y^2]}: & 0 = &a_0(x)b_2(x)+a_1(x)b_1(x)\\ 
+    {[y^3]}: & 1 = &a_1(x)b_2(x)\\ 
+\end{array}
+\]
+Per tant, podem suposar que $a_1 = b_2 = 1$.
+\[
+\begin{array}{lrl}
+    {[y^0]}: & f(x) = & a_0(x)b_0(x)\\
+    {[y^1]}: & 0 =    & a_0(x)b_1(x) + b_0(x)\\
+    {[y^2]}: & 0 = &a_0(x)+b_1(x)\\ 
+\end{array}
+\]
+Per tant, $a_0=-b_1$
+\[
+\begin{array}{lrl}
+    {[y^0]}: & f(x) = & a_0(x)b_0(x)\\
+    {[y^1]}: & 0 =    & -a_0(x)^2 + b_0(x)\\
+\end{array}
+\]
+Per tant, $b_0=a_0^2$
+\[
+\begin{array}{lrl}
+    {[y^0]}: & f(x) = & a_0^3(x)\\
+\end{array}
+\]
+Que és el que volíem veure.\\
+\textbf{$\impliedby$}\\
+Si $f = g^3$, aleshores $f+y^3 = g^3+y^3 = (y+g)(y^2-yg+g^2)$.
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 5}]
+    Proveu que en el pla afí real, la corba que en coordenades polars té per equació $r=\sin(3\theta)$, correspon a una corba afí de grau 4, $f(x,y) = 0$.
+\end{tcolorbox}
+\subsection{Exercici 5}
+Notem que els punts de la corba són de la forma $(\sin(3\theta):\theta)$, que això es pot passar a coordenades cartesianes com:
+\[
+\begin{array}{ll}
+    x = \sin(3\theta)\cos(\theta)\\
+    y = \sin(3\theta)\sin(\theta)
+\end{array}
+\]
+Però per la identitat trigonomètrica de triplicar angles:
+\[
+    \sin(3t) = 3\sin(t)\cos(t)^2-\sin(t)^3
+\]
+Per tant, com que podem escriure $\sin(\theta) = \frac{y}{r}$ i $\cos (\theta) = \frac{x}{r}$, tenim:
+\[
+    r = \sin(3t) =r^{-3} 3yx^2-y^3
+\]
+I multiplicant per $r^3$:
+\[
+    (x^2+y^2)^2 = 3yx^2-y^3
+\]
+Acabem de veure que els punts de la corba satisfan l'equació de grau 4. Ara per veure el recíproc:
+\[
+    (x,y)=(r\cos(\theta),r\sin(\theta))
+\]
+Per tant:
+\[
+    r^4 = r^{3}\sin(3\theta)
+\]
+Que és el que volíem veure.
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 6}]
+Demostreu que el conjunt dels punts de la forma $(t^2, t^3 - t)$, amb $t \in k$, $k$ un cos qualsevol, és una corba algebraica del pla afí i doneu-ne una equació.
+\end{tcolorbox}
+\subsection{Exercici 6}
+Notem que $x=t^2$, $y=t^3-t=t(t^2-1)$, per tant: $y^2=x(x-1)^2$.
+Per veure l'altra inclusió, sigui $t^2=x$, aleshores:
+\[
+    y=t^3-t
+\]
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 7}]
+Demostreu que el conjunt de punts de la forma $(t^4 + 2t^3 + t^2 - 1,t^4 + 2t^3 + 2t^2 + t)$, amb $t \in \CC$, és una corba algebraica del pla afí.
+\end{tcolorbox}
+\subsection{Exercici 7}
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 8}]
+Demostreu que el subconjunt dels punts de $\AA^2_\RR$ que satisfan $x^2 - y^2 = 1$, $x > 0$ no és una corba algebraica.
+\end{tcolorbox}
+\subsection{Exercici 8}
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 9}]
+Demostreu que el subconjunt dels punts de $\AA^2_\RR$ de la forma $(\cos(t),t)$ no és una corba algebraica.
+\end{tcolorbox}
+\subsection{Exercici 9}
+
 \newpage
 \begin{tcolorbox}[title=\section{Exercici 14}]
 Per a cadascuna de les corbes següents del pla afí trobeu dues parametritzacions: una projectant des del punt $(0, 0)$ sobre la recta $y = 1$ i l'altra projectant des del punt $(0, 0)$ sobre la recta $x = 1$. Representeu gràficament les corbes. Recordeu la notació $V (f) = \{(x, y) \mid f(x, y) = 0\}$.
@@ -62,7 +177,7 @@ Per parametritzar la corba, considerem $\ol l_t=(0:0:1)\vee (1:t:0)$, ($l_t=(0,0
     \lambda^2-2\lambda+\lambda^2t^2=0\iff
     (\lambda+\lambda t^2-2)\lambda=0
 \]
-però si $\lambda=0$ tenim l'orígen: i volem trobar l'altre punt, que ve donat per:
+però si $\lambda=0$ tenim l'origen: i volem trobar l'altre punt, que ve donat per:
 \[
     \lambda+\lambda t^2-2=0\iff 
     \lambda(1+ t^2)=2\iff 
@@ -77,68 +192,47 @@ Per tenir l'altra parametrització fem $(x,y)=(\lambda t,\lambda)$, amb $\lambda
 \]
 És a dir, tenim que la parametrització ve donada per: $\left(\frac{2t^2}{t^2+1},\frac{2t}{t^2+1}\right)$
 \newpage
-\begin{tcolorbox}[title=\section{Exercici 1}]
+\begin{tcolorbox}[title=\section{Exercici 17}]
 Calculeu la multiplicitat d'intersecció en el $(0, 0)$ de les parelles de corbes afins següents:
 \begin{enumerate}
     \item $f:y^2 + x^2y - x ^3 = 0$ i $g:y^2 + x^3y + 2x = 0$.
     \item $f:y^3 - x^3=0$ i $g:y^2-x^3=0$.
 \end{enumerate}
 \end{tcolorbox}
-\subsection{Exercici 1.1}
+\subsection{Exercici 17.1}
 notem que el con tangent de $f$ és la recta doble $y^2=0$; i la de $g$ és $x=0$; i com que tenen el con tangent diferent, tenim que han de tenir: $m_{(0,0)}(f)\,m_{(0,0)}(g)=2$.
-\subsection{Exercici 1.2}
+\subsection{Exercici 17.2}
 Notem que ara el con tangent de $f$ és $\{x-y,x-\xi y, x-\xi^2 y\}$ (on $\xi$ és una arrel tercera primitiva de la unitat). I com que el con de $g$ és la recta doble $y=0$, tenim que la multiplicitat d'intersecció és $6$.
 \newpage
-\begin{tcolorbox}[title=\section{Lab 1}]
-    \begin{enumerate}
-        \item[\textbf{P1}] Sigui $C$ una cònica del pla projectiu amb matriu $A$. Demostreu que els punts dobles de $C$ (és         a dir els punts tals que les seves coordenades són anul·lats per la matriu) són exactament els punts singulars de $C$. Proveu que en un punt no singular la tangent que hem definit coincideix amb la polar en el punt (és a dir, la tangent que es definia a Geometria Projectiva).
-        \item[\textbf{P2}] Calculeu la multiplicitat d'intersecció en el $(0, 0)$ de les parelles de corbes afins següents:
-        \begin{enumerate}
-            \item $x^3+x+y=0$ i $y^3 = 3x^2y+2x^3$
-            \item $y^4 = x^3$ i $x^2y^3 - y^2+2x^7 = 0$
-            \item $y^2 = x^5$ i $y^3 - 4x^3y+x^4 = 0$
-            \item $xy^4+y^3 = y^5+x^2 = xy$
-        \end{enumerate}
-        \item[\textbf{P3}] Considerem la corba projectiva de grau 4 següent:
-        \[
-            F(x, y, z) = x^2y^2+y^2z^2+z^2x^2-3xyz(x+y+z)
-        \]
-        Proveu que la corba és singular en els punts $[1 : 0 : 0]$, $[0 : 1 : 0]$, $[0 : 0 : 1]$, trobeu la multiplicitat i les rectes del con tangent en cada cas.
-        \item[\textbf{P4}] Siguin $l_1, \dots , l_k$ polinomis homogenis de grau 1 en les variables $x$, $y$, $z$ no proporcionals dos a dos. Considerem la corba de polinomi $F = l_1l_2 \dots l_k$. Doneu el màxim nombre de singularitats que pot tenir $F$. Per $k = 4$, descriviu totes les configuracions de singularitats que es poden donar amb totes les multiplicitats i cons tangents a cada punt.
-        \item[\textbf{P5}] Siguin $y - p(x)$, $g(x, y) \in K[x, y]$ polinomis tals que $y - p(x)$ no divideix $g(x, y)$, $g(0, 0) = 0$ i $p(0) = 0$. Useu l'axiomàtica de la multiplicitat d'intersecció per provar que:
-        \[I_{(0,0)}(y - p(x), g(x, y)) = \mult_0 g(x, p(x)).\]
-        \textit{(Indicació: poseu $g(x, y) = g_0(x) + g_1(x)y + \dots + g_r(x)y^r$ i apliqueu inducció sobre $r$. També es pot resoldre considerant $y - p(x)$ i $g(x, y)$ com a polinomis en $C(x)[y]$ i dividint $g$ per $y - p(x)$ aprofitant que $C(x) = \{r(x)/s(x), s\neq 0\}$ és un cos).}
-        Apliqueu aquesta fórmula per calcular la multiplicitat d'intersecció en el $(0, 0)$ de la cònica $y - x^2$ i la cúbica $xy + x^3+y^3$.
-    \end{enumerate}
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 20}]
+Demostreu que les corbes projectives següents són irreductibles i calculeu els seus punts singulars, les seves multiplicitats i les seves rectes tangents:
+\begin{enumerate}
+    \item $V (xy^4 + zy^4 + xz^4)$.
+    \item $V (x^2y^3 + z^3x^2 + z^3y^2)$.
+    \item $V (zy^2 - x(x - z)(x - \lambda z))$, on $\lambda \in \CC$.
+    \item $V ((x + y + z)^3 - 27xyz)$.
+\end{enumerate}
 \end{tcolorbox}
-\subsection{Exercici 1}
-Notem que els punts singulars de $C$ són els punts que s'anul·len totes les derivades parcials, però notem que la matriu de les derivades parcials és exactament la mateixa matriu que la de la cònica. I per tant, com que la recta tangent (en $p$) són els punts que anul·len $M_Cp$, que equival a anul·lar la derivada en el punt corresponent.
-\subsection{Exercici 2.1}
-Notem que els cons tangents són:
+\subsection{Exercici 20.1}
+Notem que com a polinomi en $x$ és lineal, per tant, si considerem $H_\infty=\{x=0\}$, tenim:
 \[
-    T_0(f) = x+y=0,\qquad T_0(g) = (x+y)(y+x)(y-2x) = 0
+    F(x,y,z)=x\underbrace{(y^4+z^4)}_{F_4}+\underbrace{zy^4}_{F_5}=xF_4+F_5=(G_1(y,z)+xG_2(y,z))H(y,z)
 \]
-Per tant, com que no són disjunts la multiplicitat serà com a mínim 4. Prenem ara $g-(x+y)(y-2x)f = -x^3(x+y)(y-2x)=h$
+Per tant, tenim que $H\mid F_4$ i $F_5$, per tant, $H\mid y^4+z^4$ i $H\mid yz^4$.\\
 \[
-    T_0(f) = x+y=0,\qquad T_0(h) = x^3(y+x)(y-2x) = 0
+        H\mid y^4+z^4\implies H\mid z(y^4+z^4)\implies H\mid z^5
 \]
-Per tant, ara prenem $h-x^3(y-2x)f=x^6(y-2x)(y+x)=j$,
+És a dir $H=z^k$, i per tant, $k=0$.\par
+Notem que com que en el $(1:0:0)$ tenim un punt singular de multiplicitat 4. Per tant si tinguéssim algun altre punt de multiplicitat $\geq 2$ la recta que els uneix intersecaria amb multiplicitat $\geq 8$, però això és una contradicció.\\
+Per estudiar el con tangent, hem de factoritzar $F_4=y^4+z^4=(y+\xi z)(y+\xi^3 z)(y+\xi ^5 z)(y+\xi^7 z)$.
+\subsection{Exercici 20.2}
+Notem que aquesta corba es pot expressar:
 \[
-    T_0(f) = x+y=0,\qquad T_0(j) = x^6(y-2x) = 0
+    x^2y^3+z^3x^2+z^3y^2=x^2(y^3+z^3)+z^3y^2
 \]
-I ara per fi el con tangent és disjunt, per tant, la multiplictat és 6.
-\subsection{Exercici 2.2}
-Els cons tangents són:
-\[
-    T_0(f)=x^3, \qquad T_0(g) = y^2
-\]
-Per tant $m_0=6$
-\subsection{Exercici 2.3}
-Els cons tangents són:
-\[
-    T_0(f)=y^2, \qquad T_0(g) = y^3
-\]
-Fem ara $g-yf = $
+\subsection{Exercici 20.3}
+\subsection{Exercici 20.4}
 
 
 \end{document}

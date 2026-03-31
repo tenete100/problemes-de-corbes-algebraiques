@@ -1,0 +1,72 @@
+\documentclass[11pt, a4paper]{article}
+\input{Config.tex}
+\usepackage{hyperref}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesection}{}
+
+\title{Introducció a l'àlgebra commutativa}
+\author{Bernat Esteve Sagarra}
+
+\begin{document}
+\pagestyle{fancy}
+% 
+\lhead{Bernat Esteve}
+\rhead{Lab 1}
+\begin{tcolorbox}[title=\section{Lab 1}]
+    \begin{enumerate}
+        \item[\textbf{P1}] Sigui $C$ una cònica del pla projectiu amb matriu $A$. Demostreu que els punts dobles de $C$ (és         a dir els punts tals que les seves coordenades són anul·lats per la matriu) són exactament els punts singulars de $C$. Proveu que en un punt no singular la tangent que hem definit coincideix amb la polar en el punt (és a dir, la tangent que es definia a Geometria Projectiva).
+        \item[\textbf{P2}] Calculeu la multiplicitat d'intersecció en el $(0, 0)$ de les parelles de corbes afins següents:
+        \begin{enumerate}
+            \item $x^3+x+y=0$ i $y^3 = 3x^2y+2x^3$
+            \item $y^4 = x^3$ i $x^2y^3 - y^2+2x^7 = 0$
+            \item $y^2 = x^5$ i $y^3 - 4x^3y+x^4 = 0$
+            \item $xy^4+y^3 = y^5+x^2 = xy$
+        \end{enumerate}
+        \item[\textbf{P3}] Considerem la corba projectiva de grau 4 següent:
+        \[
+            F(x, y, z) = x^2y^2+y^2z^2+z^2x^2-3xyz(x+y+z)
+        \]
+        Proveu que la corba és singular en els punts $[1 : 0 : 0]$, $[0 : 1 : 0]$, $[0 : 0 : 1]$, trobeu la multiplicitat i les rectes del con tangent en cada cas.
+        \item[\textbf{P4}] Siguin $l_1, \dots , l_k$ polinomis homogenis de grau 1 en les variables $x$, $y$, $z$ no proporcionals dos a dos. Considerem la corba de polinomi $F = l_1l_2 \dots l_k$. Doneu el màxim nombre de singularitats que pot tenir $F$. Per $k = 4$, descriviu totes les configuracions de singularitats que es poden donar amb totes les multiplicitats i cons tangents a cada punt.
+        \item[\textbf{P5}] Siguin $y - p(x)$, $g(x, y) \in K[x, y]$ polinomis tals que $y - p(x)$ no divideix $g(x, y)$, $g(0, 0) = 0$ i $p(0) = 0$. Useu l'axiomàtica de la multiplicitat d'intersecció per provar que:
+        \[I_{(0,0)}(y - p(x), g(x, y)) = \mult_0 g(x, p(x)).\]
+        \textit{(Indicació: poseu $g(x, y) = g_0(x) + g_1(x)y + \dots + g_r(x)y^r$ i apliqueu inducció sobre $r$. També es pot resoldre considerant $y - p(x)$ i $g(x, y)$ com a polinomis en $C(x)[y]$ i dividint $g$ per $y - p(x)$ aprofitant que $C(x) = \{r(x)/s(x), s\neq 0\}$ és un cos).}
+        Apliqueu aquesta fórmula per calcular la multiplicitat d'intersecció en el $(0, 0)$ de la cònica $y - x^2$ i la cúbica $xy + x^3+y^3$.
+    \end{enumerate}
+\end{tcolorbox}
+\subsection{Exercici 1}
+Notem que els punts singulars de $C$ són els punts que s'anul·len totes les derivades parcials, però notem que la matriu de les derivades parcials és exactament la mateixa matriu que la de la cònica. I per tant, com que la recta tangent (en $p$) són els punts que anul·len $M_Cp$, que equival a anul·lar la derivada en el punt corresponent.
+\subsection{Exercici 2.1}
+Notem que els cons tangents són:
+\[
+    T_0(f) = x+y=0,\qquad T_0(g) = (x+y)(y+x)(y-2x) = 0
+\]
+Per tant, com que no són disjunts la multiplicitat serà com a mínim 4. Prenem ara $g-(x+y)(y-2x)f = -x^3(x+y)(y-2x)=h$
+\[
+    T_0(f) = x+y=0,\qquad T_0(h) = x^3(y+x)(y-2x) = 0
+\]
+Per tant, ara prenem $h-x^3(y-2x)f=x^6(y-2x)(y+x)=j$,
+\[
+    T_0(f) = x+y=0,\qquad T_0(j) = x^6(y-2x) = 0
+\]
+I ara per fi el con tangent és disjunt, per tant, la multiplicitat és 6.
+\subsection{Exercici 2.2}
+Els cons tangents són:
+\[
+    T_0(f)=x^3, \qquad T_0(g) = y^2
+\]
+Per tant $m_0=6$
+\subsection{Exercici 2.3}
+Els cons tangents són:
+\[
+    T_0(f)=y^2, \qquad T_0(g) = y^3
+\]
+Fem ara $g-yf = $
+
+
+\end{document}
+% ---
+% \newpage
+% \begin{tcolorbox}[title=\section{Exercici XXX}]
+% \end{tcolorbox}
+% \subsection{Exercici XXX}

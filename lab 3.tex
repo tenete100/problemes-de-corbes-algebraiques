@@ -1,0 +1,181 @@
+\documentclass[11pt, a4paper]{article}
+\input{Config.tex}
+\usepackage{hyperref}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesection}{}
+
+\title{Introducció a l'àlgebra commutativa}
+\author{Bernat Esteve Sagarra}
+
+\begin{document}
+\pagestyle{fancy}
+% 
+\lhead{Bernat Esteve}
+\rhead{Laboratori 3}
+\begin{tcolorbox}[title=\section{Exercici 1}]
+    Proveu la següent generalització del Teorema de Pappus: Sigui $C$ una cònica no singular i considerem sis punts $A_1$, $A_2$, $A_3$, $B_1$, $B_2$, $B_3$ sobre $C$. Proveu que els punts $A_1B_2 \cap A_2B_1$, $A_2B_3 \cap A_3B_2$ i $A_3B_1 \cap A_1B_3$ estan alineats.
+\end{tcolorbox}
+\subsection{Exercici 1.1}
+\begin{center}
+    \begin{tikzpicture}[scale = 1.5]
+    \draw (0,0) ellipse (2 and {2/sqrt(3)});
+    \node (A1) at (-2,0) {};
+    \node (A2) at (-1,1) {};
+    \node (A3) at (1,1) {};
+    \node (B1) at (2,0) {};
+    \node (B2) at (-1,-1) {};
+    \node (B3) at (1,-1) {};
+    \draw[color = red, name path = l31] (-4,2) -- (-1,-1);
+    \draw[color = red, name path = l11] (-1,1) -- (1,-1);
+    \draw[color = red, name path = l21] (4,-2) -- (2,0);
+    \draw[color = blue, name path = l22] (-2,0) -- (4,-2);
+    \draw[color = blue, name path = l32] (-4,2) -- (2,0);
+    \draw[color = blue, name path = l12] (1,1) -- (-1,-1);
+    \filldraw (A1) circle (0.05) node[left] {$A_1$};
+    \filldraw (A2) circle (0.05) node[above] {$A_2$};
+    \filldraw (A3) circle (0.05) node[above] {$A_3$};
+    \filldraw (B1) circle (0.05) node[right] {$B_1$};
+    \filldraw (B2) circle (0.05) node[below] {$B_2$};
+    \filldraw (B3) circle (0.05) node[below] {$B_3$};
+    \filldraw (-4,2) circle (0.05) node[above] {$p_3$};
+    \filldraw (0,0) circle (0.05) node[above] {$p_1$};
+    \filldraw (4,-2) circle (0.05) node[above] {$p_2$};
+    \end{tikzpicture}
+\end{center}
+Considerem la cúbica {\color{red}$C_1$} el conjunt de rectes vermelles, i {\color{blue}$C_2$} el conjunt de rectes blaves.\\
+Sigui 
+\[
+    \begin{cases*}
+        p_1=A_2B_3\cap A_3B_2\\
+        p_2=A_1B_3\cap A_3B_1\\
+        p_3=A_2B_1\cap A_1B_2\\
+    \end{cases*}
+\]
+Aleshores primer farem un parell de casos degenerats: si algun dels punts $p_i=p_j$, aleshores tenim que trivialment hi passa una recta.\\
+Si en comptes tenim que $p_i=A_j$ (o de la mateixa manera $B_j$): si $p_i = A_i$ aleshores $A_i\in A_j A_k$, i per tant, o tenim punts repetits, o tenim que la cònica conté 3 punts alineats, i per tant, és degenerada (per Bézout conté la recta).\\
+En el cas de que $p_i = A_j$, aleshores $A_j = A_j B_k\cap A_k B_j$ i per tant, $A_j\in A_kB_j$, i si aquest punt és de la cònica diferent dels $A_kB_j$, aleshores tindrem una altra recta continguda a la cònica.\par
+Ara si no estem en un cas degenerat, tenim que les cúbiques $C_1$ i $C_2$ es tallen en 9 punts diferents. I com que la cònica en conté 6, pel teorema de Noether els altres 3 punts estan en una recta.
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 2}]
+    Considerem el pla euclidià $(\mathbb{A}^2_\RR,\RR^2,\langle,\rangle)$
+    amb una referència ortonormal fixada, i la seva compleció projectiva $\PP^2_\RR$. Suposem que les coordenades en el pla afí són $(x, y)$, les coordenades projectives corresponents són $[x : y : z]$ i la recta de l'infinit és $\{z = 0\}$. El producte escalar en $\RR^2$ determina una quàdrica en $r_\infty$ amb matriu (un múltiple de) la identitat a la qual anomenen \textbf{absolut}. Anomenem punts cíclics (o circulars) als punts d'aquesta quàdrica $I = [1 : i : 0]$, $J = [1 : -i : 0]\in \PP^2_\CC$. Observeu que dos vectors $(a, b),(c, d) \in \RR^2$ són ortogonals si, i només si, $[a : b : 0]$ i $[c : d : 0]$ són conjugats respecte de l'absolut.
+    \begin{enumerate}
+        \item Proveu que els cercles, és a dir, les corbes amb equació de la forma $(x-a)^2+(y-b)^2=r^2$ amb $a, b, r \in \RR$ i $r > 0$, són exactament les còniques no degenerades amb algun punt real i que contenen els punts cíclics. A partir d'ara direm cercle (o cercle generalitzat) a qualsevol cònica no degenerada de $\PP^2_\CC$ que conté els punts cíclics. Direm que és un cercle real si té equació real i conté almenys un punt amb coordenades reals.
+        \item Siguin $p_1$, $p_2$, $p_3$ tres punts afins de $\PP^2_\CC$, no alineats i amb coordenades reals. Proveu que existeix un únic cercle passant pels 3 punts i que aquest cercle és real. Deduïu-ne que dos cercles es tallen com a molt en dos punts (també ho podeu deduir del Teorema de Bézout).
+    \end{enumerate}
+\end{tcolorbox}
+\subsection{Exercici 2.1}
+\textbf{Els cercles ho satisfan:}\\
+Sigui $\omega: (x-a)^2+(y-b)^2=r^2$, aleshores hem de veure que conté els punts $I$ i $J$. Notem que si homogeneïtzem el polinomi ens queda: $\ol\omega=(x-az)^2+(y-bz)^2-z^2r^2=0$, que conté aquests punts.\par\vspace{7mm}
+\textbf{Si conté els 2 punts és un cercle:}\\
+Sigui $\omega$ una cònica que conté aquests 2 punts. Aleshores considerem el següent polinomi $P(x:y:z)=ax^2+by^2+cz^2+dxy+exz+fyz$. Si ara considerem $P(I)=a-b+di=0$ i $P(J)=a-b-di=0$, per tant sumant les equacions ens dona que $a=b$ i que $d=0$; per tant, podem fer $P\mapsto \frac{P}{a}$ ens dona que el polinomi és de la forma $P=x^2+y^2+cz^2+exz+fyz$, que canviant lletres ens queda:
+\[
+p(x,y)=(x-a)^2+(y-b)^2-r^2
+\]
+Ara hem de veure que els coeficients són reals.\\
+Aquí crec que hi ha alguna cosa que no acabo d'entendre, perquè si considero la cònica no degenerada:
+\[
+    (x-i)^2+(y-i)^2=0=x^2+y^2-2-2i(x+y)
+\]
+conté el punt $(1,-1)$. Per tant, entenc que els coeficients són reals per definició...
+% Considerem el canvi de referència:
+% \[
+%     \begin{pmatrix}
+%         1&0&-a\\
+%         0&1&-b\\
+%         0&0&1\\
+%     \end{pmatrix}
+% \]
+% Aleshores, això preserva la recta $r_\infty$, i també preserva els punts $I$ i $J$, de fet, això equival a una translació del pla afí (vist a geolin). Per tant, podem mirar com queda la cònica.
+% \[\omega:  x^2+y^2-r^2=0\]
+% I ara només veurem que $r\in \RR_{>0}$.\par
+% \textbf{La cònica té algun punt real:}\\
+% Sigui $[\alpha:\beta:1]$ un punt real de la cònica. Aleshores tenim que $\alpha^2+\beta^2=r^2$, i per tant, tenim que $r^2\geq0$ (i si prenem $r=\sqrt{\alpha^2+\beta^2}$), que ens diu que $r\geq 0$.\par
+% \textbf{La cònica no és degenerada:}\\
+% Si considerem el determinant:
+% \[
+%     \det(\omega)=
+%     \begin{vmatrix}
+%         1&0&0\\
+%         0&1&0\\
+%         0&0&r^2\\
+%     \end{vmatrix}=r^2\neq0
+% \]
+% Per tant, tenim que $r>0$.\par
+% Ara hem vist que en aquesta nova referència $r\in\RR_{>0}$, però no sabem que a la referència original això fos cert, i poder aquest canvi de referència ho envia tot en orris.\par
+% \textbf{Aquest canvi de referència és legal:}\\
+% Notem que en el polinomi $x^2+y^2=r^2\mapsto ()$
+
+
+% Sigui $p=[\alpha:\beta:1]\in \PP_\RR$ de $\omega$, aleshores:
+% \[
+%     (\alpha-a)^2+(\beta-b)^2-r^2=0
+% \]
+% I si ho trenquem en part real i part imaginària:
+% \[
+%     \begin{cases}
+%         \Re&:(\alpha-a_x)^2-a_y^2+(\beta-b_x)^2-b_y^2-r_x^2-r_y^2=0\\
+%         \Im&:(\alpha-a_x)a_y+(\beta-b_x)b_y-r_xr_y=0
+%     \end{cases}
+% \]
+% I per tant, tenim:
+
+\subsection{Exercici 2.2}
+Com que els punts no estan alineats i són afins, aleshores existeix una única cònica que passi per aquests 3 punts més $I$ i $J$ (no n'hi ha 4 d'alineats). Per tant, hem de veure que la recta $I\notin p_ip_j$ (és a dir que no n'hi ha 3 d'alineats).\\
+Com que les rectes que uneixen els punts $p_ip_j$ són rectes amb coeficients reals, i no hi ha cap recta amb coeficients reals que anul·li el punt $(1:i:0)$. Per tant, d'aquests 5 punts no n'hi ha 3 d'alineats, per tant la cònica que genera és no degenerada.\\
+I per Bézout, com que els punts $I$ i $J$ són punts de tots els cercles, aleshores només hi poden haver 2 punts més d'intersecció (2 còniques s'intersequen com a molt 4 vegades).
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 3: (Teorema d'August Miquel)}]
+Sigui $ABC$ un triangle del pla afí euclidià i sigui $A'\in BC$, $B'\in AC$ i $C'\in AB$ tres punts diferents dels vèrtexs. Siguin $K_A$ el cercle que passa per $A$, $B'$ i $C'$; $K_B$ el que passa per $A'$, $B$ i $C'$; i $K_C$ el que passa per $A'$, $B'$ i $C$. Suposarem que els cercles es tallen dos a dos en dos punts diferents. Proveu
+que els tres cercles es tallen en punt. \textit{(Indicació: considereu les cúbiques $KB \cdot AC$ i $KC \cdot AB$ i apliqueu el Teorema de Max Noether)}
+% \begin{center}
+%     \begin{tikzpicture}[scale = 1.5]
+%         \tkzDefPoint(0,0){A};
+%         \tkzDefPoint(1,2.2){B};
+%         \tkzDefPoint(3,1.5){C};
+%         % \tkzDefPointOnLine[pos=0.5](A,B){C'}
+%         \tkzDrawLine(A,B);
+%         \tkzDrawLine(B,C);
+%         \tkzDrawLine(C,A);
+%         % \tkzLabelPoints(A,C,B,C');
+%         \tkzDrawCircle[circum](A,B,C);
+%     \end{tikzpicture}
+% \end{center}
+\end{tcolorbox}
+\subsection{Exercici 3}
+Notem que $C_1=K_B\cdot AC$ i $C_2=K_C\cdot AB$ es tallen en $I=(1:i:0)$ i $J=(1:-i:0)$, en $A$, $B$ i $C$ i en $A'$; i sigui $P$ l'altre punt d'intersecció.\par
+\textbf{Tots els punts són diferents:}\\
+Clarament $I\neq J$ i aquests són els únics punts de la recta de l'infinit, per tant, són diferents de tots els altres.\\
+Per hipòtesis $A$, $B$, $C$, $A'$, $B'$, $C'$ i $P$ són tots punts diferents.\\ 
+Per tant, podem aplicar el teorema de Max Noether veient que tenim $3$ d'aquests 9 punts en la recta $BC$ ($B$, $C$ i $A'$). Per tant, els altres 6 punts estan en una cònica, i com que aquesta conté $I$ i $J$, serà un cercle.\\
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 4}]
+    Amb la notació de l'exercici anterior, sigui $K$ el cercle que conté els punts $A$, $B$, $C$. Proveu que el punt $P$ pertany a $K$ si, i només si $A'$, $B'$ i $C'$ estam alineats.
+\end{tcolorbox}
+\subsection{Exercici 4}
+Suposem que $P\in (ABC)$, aleshores aquesta cònica conté els punts $A$, $B$, $C$, $I$, $J$ i $P$, i per tant, els altres punts $A'$, $B'$ i $C'$ estan en una recta. L'altra implicació es fa igual.
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 5}]
+Siguin $K_1$, $K_2$, $K_3$ tres cercles de $\PP^2_\CC$ que es tallen dos a dos punts diferents. Siguin $r$, $s$, $t$ les rectes determinades per cada parella de punts. Proveu que les tres rectes determinades per cada parella de punts. Proveu que les tres rectes són concurrents o bé paral·leles dues a dues.
+\end{tcolorbox}
+\subsection{Exercici 5}
+Abans de fer aquest problema, voldria dir que crec que aquest problema és un problema tipus de potència d'un punt. Havent dit això, quan tingui temps voldré mirar si hi ha alguna relació entre potència d'un punt i tot el que estem fent ara.\par
+Abans de començar, posem noms a les coses:
+\[
+    \begin{cases*}
+        r_1=K_2\cap K_3\\
+        r_2=K_1\cap K_3\\
+        r_3=K_1\cap K_2\\
+    \end{cases*}\qquad \begin{cases*}
+        p_1^3, p_2^3 = K_1\cap K_2\\
+        p_1^2, p_2^2 = K_1\cap K_3\\
+        p_1^1, p_2^1 = K_2\cap K_3\\
+    \end{cases*}
+\]
+Fem com abans, i considerem la cúbica $C_1=K_1\cdot r_1$, $C_2 = K_2\cdot r_2$. Aleshores tenim que $C_1\cap C_2=\{\underbrace{p_1^2,p_2^2}_{r_2\cap K_1},\underbrace{p_1^1,p_2^1}_{r_1\cap K_2},\underbrace{I,J,p_1^3,p_2^3}_{K_1\cap K_2}, \underbrace{Q}_{r_1\cap r_2}\}$. Aleshores aquests punts (que són tots diferents), tenim que $\{I,J,p_1^2,p_2^2,p_1^1,p_2^1\}$ són punts de $K_3$, per tant, els altres punts estan alineats (i per tant, les 3 rectes es tallen en $Q$).
+\end{document}
+% ---
+% \newpage
+% \begin{tcolorbox}[title=\section{Exercici XXX}]
+% \end{tcolorbox}
+% \subsection{Exercici XXX}

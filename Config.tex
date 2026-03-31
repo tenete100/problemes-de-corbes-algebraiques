@@ -1,7 +1,7 @@
 
 \usepackage{graphicx} % Required for inserting images
-% \usepackage[utf8]{inputenc} % Que caracteres se van a ver
-\usepackage[document]{ragged2e} % Poner los párrafos
+% \usepackage[utf8]{inputenc} % Quins caràcters es veuran
+\usepackage[document]{ragged2e} % Posar els paràgrafs
 \usepackage{amsmath,amsthm,amssymb,latexsym}
 \usepackage{enumitem}
 % \usepackage{xcolor}
@@ -16,6 +16,8 @@
 \usepackage{microtype}
 \usepackage{fancyhdr}
 \usepackage{parskip}
+\usepackage{tkz-euclide}
+
 \usepackage[catalan]{babel}
 
 \renewcommand\refname{}
@@ -25,6 +27,8 @@
 
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{patterns}
+\usetikzlibrary{intersections}
+
 
 \setlength{\headheight}{15.21004pt}
 
@@ -46,6 +50,7 @@
 \providecommand{\RR}{\mathbb R}
 \providecommand{\PP}{\mathbb P}
 \providecommand{\ZZ}{\mathbb Z}
+\renewcommand{\AA}{\mathbb A}
 \providecommand{\dd}{\mathrm d}
 \newcommand{\mfrk}{\mathfrak}
 \newcommand{\KK}{\mathbb{K}}
@@ -65,7 +70,7 @@
 
 
 % theorem environments
-% starred versions are not numbered, unstarred versions have a number
+% Les versions estrellades no estan numerades 
 \theoremstyle{definition}
     \newtheorem{theorem}{Teorema}
     \newtheorem{lemma}[theorem]{Lema}
@@ -78,7 +83,7 @@
     \newtheorem*{theorem*}{Teorema}
     \newtheorem*{lemma*}{Lema}
     \newtheorem*{claim*}{Claim}
-    \newtheorem*{corollary*}{Corol·lari}
+    \newtheorem*{corollary*}{corol·lari}
     \newtheorem*{definition*}{Definició}
     \newtheorem*{proposition*}{Proposició}
     \newtheorem*{example*}{Exemple}
