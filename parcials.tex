@@ -1,0 +1,212 @@
+\documentclass[11pt, a4paper]{article}
+\input{Config.tex}
+\usepackage{hyperref}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesection}{}
+
+\begin{document}
+\pagestyle{fancy}
+% 
+\lhead{Bernat Esteve}
+\rhead{Parcial 2024}
+\begin{tcolorbox}[title=\section{Exercici 1}(2 punts)]
+Calculeu raonadament la multiplicitat d'intersecció en el punt $(0, 0)$ dels parells de corbes següents:
+\begin{enumerate}
+    \item $x^3 + y^4$ i $x^4 + y^3$.
+    \item $y+x^2+y^2$ i $y^3+x^4+y^4$.
+    \item $x^2y^2$ i $x^2+y^2+x^3+y^3$
+\end{enumerate}
+\end{tcolorbox}
+\subsection{Exercici 1.1}
+Notem que el con tangent de la primera corba és $x=0$, i el de la segona és $y=0$, per tant, tenim que la multiplicitat és $3\times 3=9$.
+\subsection{Exercici 1.2}
+Notem que el con tangent de la primera corba i el de la segona són iguals ($y=0$). Per tant, hem de fer alguna maniobra:
+\[
+    y^3+x^4+y^4-y^2(y+x^2+y^2)=x^4-x^2y^2
+\]
+Que no té $y=0$ en el con tangent, per tant, per l'axioma de l'ideal en la definició de multiplicitat d'intersecció, ens queda que la multiplicitat és $1\times 4=4$.
+\subsection{Exercici 1.3}
+Notem que el con tangent de la primera corba és $x=0$ i $y=0$; en canvi a la segona és $x+iy=0$ i $x-iy=0$; i per tant, tindríem que la multiplicitat és $4\times 2=8$.
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 2} (2 punts)]
+    Considerem les còniques projectives $C_1 = V_+(x^2-yz)$, $C_2=V_+(x^2-xy-yz)$, $C_3=V_+(yz-x^2+y^2)$.
+    \begin{enumerate}
+        \item Proveu que són no singulars.
+        \item Trobeu la intersecció de $C_1$ i $C_2$ i calculeu la multiplicitat d'intersecció en cada punt de la intersecció.
+        \item Feu el mateix que en l'apartat b) per a $C_1$ i $C_3$.
+    \end{enumerate}
+\end{tcolorbox}
+\subsection{Exercici 2.1}
+Mirant $C_1$
+\[
+    \begin{cases}
+        \partial_x C_1=2x=0\\
+        \partial_y C_1=-z=0\\
+        \partial_z C_1=-y=0\\
+    \end{cases}
+\]
+Que no té solució. Fent el mateix amb les altres corbes:
+\[
+    \begin{cases}
+        \partial_x C_2=2x-y=0\\
+        \partial_y C_2=-x-z=0\\
+        \partial_z C_2=-y=0\\
+    \end{cases}
+    \qquad
+    \begin{cases}
+        \partial_x C_3=-2x=0\\
+        \partial_y C_3=2y+z=0\\
+        \partial_z C_3=y=0\\
+    \end{cases}
+\]
+Que ens diu que cap d'elles té cap punt singular.
+\subsection{Exercici 2.2}
+Considerem el sistema d'equacions:
+\[
+    \begin{cases*}
+        x^2-yz=0\\
+        x^2-yz-xy=0
+    \end{cases*}\implies
+    \begin{cases*}
+        x^2-yz=0\\
+        xy=0
+    \end{cases*}
+\]
+Per tant, hem de considerar 2 casos:\par
+\textbf{Cas 1: $y=0$}\\
+Si $y=0$, mirant a les equacions, ens dona $x=0$. Per tant, un punt és $(0:0:1)$ (que efectivament és punt).\par
+\textbf{Cas 2: $z=0$}\\
+Mirant les equacions, això també ens dona $x=0$, per tant, tenim $(0:1:0)$.\par
+
+Mirem ara les multiplicitats d'intersecció. Considerem la recta $r_\infty=\{y=0\}$. Aleshores
+\[
+I_{(0,0)}(x^2-z,x^2-x-z)=
+I_{(0,0)}(x^2-z,-x)=
+I_{(0,0)}(-z,-x)=1
+\]
+Per tant, L'altre punt té intersecció 3.
+\subsection{Exercici 2.3}
+Fem el mateix d'abans. Considerem el sistema d'equacions:
+\[
+    \begin{cases*}
+        x^2-yz=0\\
+        x^2-y^2-zy=0
+    \end{cases*}\implies
+    \begin{cases*}
+        x^2-yz=0\\
+        y^2=0
+    \end{cases*}
+\]
+Per tant, a diferència d'abans, només hem de considerar 1 sol cas:\par
+Si $y=0$, mirant a les equacions, ens dona $x=0$. Per tant, un punt és $(0:0:1)$. I com que és únic, ha de tenir multiplicitat 4.
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 3}]
+Trobeu l'equació de la corba que satisfan els punts de la forma $(t^3 + t, t^2 - 1)$, on $t \in \CC$. Doneu les singularitats d'aquesta corba.
+\end{tcolorbox}
+\subsection{Exercici 3}
+Notem que 
+\[
+    x=t(t^2+1)=t(y+2)
+\]
+Per tant:
+\[
+    x^2-(y+2)^2=(t^2-1)(y+2)^2=(y+2)^2y
+\]
+És a dir, que $\gamma$ satisfà:
+\[
+    x^2=(y+2)^2(y+1)
+\]
+Per veure l'altra inclusió, sigui $(x,y)$ que satisfà aquesta equació. Aleshores sigui $t$ tal que $x=t(y+2)$:
+\[
+    x^2=t^2(y+2)^2=(y+2)^2(y+1)
+\]
+Per tant
+\[
+    (t^2-1-y)(y+2)^2=0
+\]
+Que ens diu que $y+2=0$, i mirant l'equació ens dona $x=0$; o que $y=t^2-1$.\par
+I si tenim que $y=t^2-1$, aleshores, posant això a l'equació inicial, ja estem.\par
+Per mirar els punts singulars, hem de mirar les derivades parcials de la corba:
+
+\[
+    \begin{cases*}
+    f=x^2-(y+2)^2(y+1)=0\\
+    \frac{\partial f}{\partial x}=2x=0\\
+    \frac{\partial f}{\partial y}=(y+2)(3y+4)=0\\
+    \end{cases*}
+\]
+Per tant, tenim que $x=0$, i que $y=-2$ o $y=-\frac{4}{3}$. Posant aquests punts a la corba, només el $(0,-2)$ és punt singular.\par
+Per mirar la multiplicitat, centrem el polinomi en $(0,-2)$:
+\[
+    x^2-(y+2)^2(y+1)\to \ol x^2 - \ol y^2-\ol y^3
+\]
+Per tant, té multiplicitat 2.\par \vspace{20mm}
+La manera oficial de fer aquest problema consisteix en utilitzar la resultant. Recordem que hem de pensar en la resultant com una funció de $\CC[x_1,\dots,x_n]^2\to \CC[x_2,\dots, x_n]$ que val zero en $(x_2,\dots, x_n)$ si i només si $F$ i $G$ s'intersequen en $(x_1,\dots,x_n)$ per algun $x_1$. Per tant, si considerem:
+\[
+    \begin{cases}
+        F=x(t)-x\\
+        G=y(t)-y
+    \end{cases}
+\]
+Que fixada una $(x,y)$ donarà zero si i només $\exists t$ tal que $x(t)=x$ i $y(t)$. Per tant, si fem $R(x(t)-x,y(t)-y;t)$:
+\[
+    \det\begin{pmatrix}
+        1 & 0 &    1 &   -x & 0\\
+        0 & 1 &    0 &    1 & -x\\
+        1 & 0 & -1-y &    0 & 0\\
+        0 & 1 &    0 & -1-y & 0\\
+        0 & 0 &    1 &    0 & -1-y\\
+    \end{pmatrix}=x^2-4-8y-5y^2-y^3=0
+    % -2-3y-y^2+x^2-1-3y-3y^2-y^3-1-2y-y^2
+\]
+Que dona el mateix que ens havia donat abans.
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 4}]
+    Considerem la cúbica del pla projectiu d'equació: $-xy^2 + xyz + (z - x)^3=0$.\\
+Demostreu que és no singular i que té una inflexió en el punt $[1 : 1 : 1]$.
+\end{tcolorbox}
+\subsection{Exercici 4}
+Calculem les derivades:
+\[
+    \begin{cases}
+        \partial_xF=-y^2+yz-3(z-x)^2=0\\
+        \partial_yF=x(-2y+z)=0\\
+        \partial_zF=yx+3(z-x)^2=0\\
+    \end{cases}
+\]
+Per tant, tenim 2 opcions: $x=0$ o $z=2y$.\\
+\textbf{Cas 1: $x=0$}\\
+Posant $x=0$ a les equacions, obtenim:
+\[
+    \begin{cases}
+        -y^2+yz-3z^2=0\\
+        3z^2=0\\
+    \end{cases}\implies
+    \begin{cases}
+        z=0\\
+        y=0\\
+    \end{cases}
+\]
+Que és una contradicció.\\
+\textbf{Cas 2: $y=2z$}\\
+\[
+    \begin{cases}
+        -2z^2-3(z-x)^2=0\\
+        2zx+3(z-x)^2=0\\
+    \end{cases}
+\]
+Sumant les equacions tenim:
+\[
+    \begin{cases}
+        -2z^2-3(z-x)^2=0\\
+        z(x-z)=0\\
+    \end{cases}
+\]
+Per tant, tenim $z=0$, que ens dona $x=0$; per tant, no pot ser. I si fem $x=z$ ens torna a donar que $z=0$.\\
+Per tant, aquesta cúbica no té punts singulars.
+\end{document}
+% ---
+% \newpage
+% \begin{tcolorbox}[title=\section{Exercici XXX}]
+% \end{tcolorbox}
+% \subsection{Exercici XXX}
