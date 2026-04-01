@@ -203,7 +203,44 @@ Sumant les equacions tenim:
     \end{cases}
 \]
 Per tant, tenim $z=0$, que ens dona $x=0$; per tant, no pot ser. I si fem $x=z$ ens torna a donar que $z=0$.\\
-Per tant, aquesta cúbica no té punts singulars.
+Per tant, aquesta cúbica no té punts singulars.\par
+Per veure que té un punt d'inflexió, hem de calcular la recta tangent en $(1:1:1)$, i veure que té multiplicitat 3.\par
+Recordem que per calcular la tangent en un punt de la corba s'ha de fer:
+\[
+    T_{(1:1:1)}:\frac{\partial F}{\partial x}(1:1:1)(x-1) + \frac{\partial F}{\partial y}(1:1:1)(y-1) + \frac{\partial F}{\partial z}(1:1:1)(z-1)
+\]
+Que ens dona:
+\[
+    T_{(1:1:1)}:(z-1)-(y-1)=0
+\]
+Per tant:
+\[
+    I_{(1:1:1)}(-xy^2+xyz+(z-x)^3,(z-1)-(y-1))
+\]
+Però per fer-nos la vida fàcil prendrem la recta a l'infinit $H_{\infty}=\{y=0\}$.
+\[
+    I_{(1,1)}(x(z-1)+(z-x)^3,z-1)=
+    I_{(1,1)}([z-x]^3,z-1)=3
+\]
+Que és el que volíem veure.
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 5}]
+\begin{enumerate}
+    \item Justifiqueu que una quàrtica irreductible no pot tenir tres singularitats alineades.
+    \item Enuncieu la fórmula de Poisson per a la resultant de dos polinomis en una variable.
+    \item Useu el Teorema de Bezout per justificar que si dues còniques diferents tenen cinc punts en comú, aleshores les dues són degenerades.
+    \end{enumerate}
+\end{tcolorbox}
+\subsection{Exercici 5.1}
+Notem que les singularitats són punts de multiplicitat $\geq 2$, per tant, la intersecció entre la recta i les 3 singularitats serà $\geq6$. Però per Bézout, sabem que aleshores aquesta recta ha d'estar continguda a la quàrtica, i per tant no pot ser irreductible.
+\subsection{Exercici 5.2}
+Sigui $f(x)=a_0x^n+\dots$ i $g=b_0x^m$ polinomis d'una variable sobre un domini $A$. Aleshores 
+\[
+    \mathrm{Res}(f,g)=a_0^mb_0^n\prod_{i=0,j=0}^{i=n, j=m}(\alpha_i-\beta_j)
+\]
+On $\alpha_i$ i $\beta_j$ són les arrels de $f$ i $g$ sobre la compleció algebraica de $A$.
+\subsection{Exercici 5.3}
+Si 2 còniques diferents es tallen més de 4 vegades, per Bézout han de tenir alguna component en comú. I si la component en comú no és la cònica en si, han de tenir algun factor en comú.
 \end{document}
 % ---
 % \newpage

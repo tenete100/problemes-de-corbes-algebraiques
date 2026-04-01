@@ -1,0 +1,100 @@
+\documentclass[11pt, a4paper]{article}
+\input{Config.tex}
+\usepackage{hyperref}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesection}{}
+
+\title{Introducció a l'àlgebra commutativa}
+\author{Bernat Esteve Sagarra}
+
+\begin{document}
+\pagestyle{fancy}
+% 
+\lhead{Bernat Esteve}
+\rhead{Laboratori 3}
+\begin{tcolorbox}[title=\section{Exercici 1}]
+Segons el teorema demostrat a teoria, si $F$ és una corba irreductible de grau $d$, es compleix que la suma de multiplicitats sobre els seus punts satisfà la següent fita:
+\[\sum_{p \in V_+(F)} m_p(F)(m_p(F)-1) \le (d-1)(d-2)\]
+\begin{enumerate}
+    \item Utilitzeu aquest resultat per demostrar que una quàrtica ($d=4$) irreductible pot tenir, com a màxim, 3 singularitats de multiplicitat 2.
+    \item Demostreu que no existeix cap corba irreductible de grau 4 amb quatre punts $p_i$ de multiplicitat $m_i=2$ per a $i=1,...,4$.
+    \item Malgrat l'apartat anterior, si la corba no és irreductible, sí que pot existir. Doneu un exemple explícit d'una quàrtica (que no sigui irreductible però sí reduïda) que tingui exactament 4 singularitats de multiplicitat 2. Trobeu-ne els punts i descriviu-ne els cons tangents.
+\end{enumerate}
+\end{tcolorbox}
+\subsection{Exercici 1}
+Notem que si tinguéssim 4 singularitats de multiplicitat 2, aleshores
+\[
+    8=2+2+2+2>3\times 2=6
+\]
+Que contradiu el teorema.\par\vspace{5mm}
+Però notem que si considerem la següent corba singular:
+\[
+    F=xyz(x+y+z)
+\]
+Això té ${4\choose 2}=6$ singularitats.\par
+Les singularitats són en el 
+\[
+x^2yz+xy^2z+xyz^2
+\]
+Per tant, $[0:0:1]$, $[0:1:0]$, $[1:0:0]$, $[1:-1:0]$, $[0:1:-1]$ i $[-1:0:1]$. Que tenen con tangent les rectes $x=0$, $y=0$, $z=0$, $x+y+z=0$.
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 2}]
+Siguin $F$ i $G$ dues corbes projectives irreductibles de graus $m$ i $n$ respectivament, sense components en comú. Sabem que per al producte de corbes es compleix que $\text{Sing}(F \cdot G) = \text{Sing}(F) \cup \text{Sing}(G) \cup (V_+(F) \cap V_+(G))$.
+\begin{enumerate}
+    \item Deduiu una fita superior per al nombre total de singularitats de la corba $C = F \cdot G$ exclusivament en funció dels graus $m$ i $n$. Indiqueu de quina manera intervé el Teorema de Bézout en la vostra fita.
+    \item Apliqueu la fita obtinguda al cas en què $F$ i $G$ són dues còniques irreductibles i llises (no singulars) diferents. Quin és el nombre màxim de singularitats que pot tenir $F \cdot G$?
+    \item Suposeu ara que $m=3$ (cúbica llisa) i $n=1$ (recta). Sota quina condició geomètrica la corba resultant tindrà exactament 2 singularitats?
+\end{enumerate}
+\end{tcolorbox}
+\subsection{Exercici 2}
+\[
+\sum_{p \in V_+(F\cdot G)} m_p(F)(m_p(F)-1)\le (m-1)(m-2)+(n-1)(n-2)-mn
+\]
+Utilitzant aquesta fita, tenim que el màxim nombre de singularitats és 4 (només les de $V_+(F)\cup V_+(G)$).\par
+Si la cúbica és llisa, aleshores els punts singulars són les interseccions: i per tant, hi ha 2 singularitats si la recta és una recta tangent qualsevol (de multiplicitat 2).
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 3}]
+Sigui $F$ una corba de Plücker de grau $d$ amb $n$ nodes i $c$ cúspides. A teoria s'ha definit $d^*$ com el nombre de tangents a $F$ en punts no singulars que passen per un punt $q$ exterior general (que no pertany a cap recta tangent en un punt singular), de manera que $d^* = d(d-1) - 2n - 3c$ segons la primera fórmula de Plücker.
+\begin{enumerate}
+    \item Calculeu el valor de $d^*$ per a una cúbica no singular.
+    \item Sabent que el grau de la corba dual $F^*$ coincideix amb $d^*$, quin serà el grau de la corba dual d'aquesta cúbica no singular?
+    \item Comproveu com canvia la situació per a una quàrtica: calculeu quantes tangents passen per un punt general si la quàrtica és completament llisa ($n=0, c=0$) i compareu-ho amb una quàrtica irreductible que assoleixi el màxim nombre de nodes permès teòricament (segons el Problema 1).
+\end{enumerate}
+\end{tcolorbox}
+\subsection{Exercici 3}
+\newpage
+\begin{tcolorbox}[title=\section{Exercici 4}]
+Considerem la família de corbes afins donades per $f_k(x,y)=y^2-x^k$ amb $k\geq2$.
+\begin{enumerate}
+    \item Trobeu els punts singulars a l'espai afí per a qualsevol valor de $k$.
+    
+    \item Homogeneïtzeu el polinomi per obtenir la corba projectiva $F_k(x,y,z)$ i estudieu si hi ha punts singulars addicionals a la recta de l'infinit.
+    
+    \item Centrant-nos en l'origen afí, classifiqueu la singularitat geomètrica per als casos $k=2$, $k=3$ i $k=4$. Determineu explícitament els cons tangents per identificar si es tracta d'un node (singularitat ordinària de multiplicitat 2), una cúspide, o un altre tipus.
+\end{enumerate}
+
+\end{tcolorbox}
+\subsection{Exercici XXX}
+
+\newpage
+\begin{tcolorbox}[title=\section{Exercici XXX}]
+Considereu la corba projectiva definida pel polinomi de grau 4:
+
+\[
+F(x,y,z)=(x^2 +y^2-z^2)(x ^2+y ^2-2zx)
+\]
+\begin{enumerate}
+    \item Trobeu els factors irreductibles de $F$ i demostreu que de manera independent defineixen corbes llises (no singulars).
+    
+    \item Trobeu el conjunt complert de punts singulars $\mathrm{Sing}(F)$. \textit{Indicació: Podeu utilitzar el mètode de descomposició descrit en el Problema 2 si us resulta més àgil que derivar l'expressió completa.}
+    
+    \item Per a cadascun dels punts singulars de l'apartat anterior, trobeu-ne les rectes tangents i determineu si la singularitat és ordinària o no. Com es tradueix aquest fet geomètricament respecte a l'angle d'intersecció de les components irreductibles?
+\end{enumerate}
+\end{tcolorbox}
+\subsection{Exercici 5}
+\end{document}
+% ---
+% \newpage
+% \begin{tcolorbox}[title=\section{Exercici XXX}]
+% \end{tcolorbox}
+% \subsection{Exercici XXX}
